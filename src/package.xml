@@ -2,7 +2,14 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>ProcessMonitorInboundEmail</members>
+        <members>MonitoringCtrl</members>
         <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Monitoring</members>
+        <members>MonitoringTile</members>
+        <members>MonitoringTileModal</members>
+        <name>AuraDefinitionBundle</name>
     </types>
     <types>
         <members>ProcessMonitor__c</members>

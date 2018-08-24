@@ -1,0 +1,33 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >  
+  <div class="slds-p-around_small">
+    <!-- <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="ProcessMonitor__c">
+      <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1">
+          <lightning:outputField fieldName="Name" />
+        </div>
+        <div class="slds-col slds-size_1-of-1">
+          <lightning:outputField fieldName="EmailSubject__c" />
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning:outputField fieldName="FrequencyValue__c" />
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning:outputField fieldName="FrequencyType__c" />
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning:outputField fieldName="SFDCObject__c" />
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning:outputField fieldName="OperationType__c" />
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning:outputField fieldName="OperationSource__c" />
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning:outputField fieldName="OperationTarget__c" />
+        </div>
+      </div>
+    </lightning:recordViewForm> -->
+    <lightning:recordForm recordId="{!v.recordId}" objectApiName="ProcessMonitor__c" layoutType="Full" columns="2" mode="view" />
+  </div>
+</aura:component>

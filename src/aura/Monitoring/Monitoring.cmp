@@ -1,0 +1,15 @@
+<aura:component controller="MonitoringCtrl" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+  <aura:attribute name="processes" type="List" />
+
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <div class="slds-grid slds-wrap">
+    <aura:iteration items="{!v.processes}" var="proc">
+      <div class="sldc-col slds-size_1-of-4">
+        <div class="slds-m-around_xx-small">
+          <c:MonitoringTile recordId="{!proc.Id}" />
+        </div>
+      </div>
+    </aura:iteration>
+  </div>
+</aura:component>

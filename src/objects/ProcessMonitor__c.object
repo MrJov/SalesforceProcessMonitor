@@ -38,7 +38,11 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Process_Monitor_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -126,6 +130,113 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>OperationSource__c</fullName>
+        <externalId>false</externalId>
+        <label>Operation Source</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>true</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>SFDC</fullName>
+                    <default>false</default>
+                    <label>SFDC</label>
+                </value>
+                <value>
+                    <fullName>DB</fullName>
+                    <default>false</default>
+                    <label>DB</label>
+                </value>
+                <value>
+                    <fullName>FILE</fullName>
+                    <default>false</default>
+                    <label>FILE</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OperationTarget__c</fullName>
+        <externalId>false</externalId>
+        <label>Operation Target</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>true</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>SFDC</fullName>
+                    <default>false</default>
+                    <label>SFDC</label>
+                </value>
+                <value>
+                    <fullName>DB</fullName>
+                    <default>false</default>
+                    <label>DB</label>
+                </value>
+                <value>
+                    <fullName>FILE</fullName>
+                    <default>false</default>
+                    <label>FILE</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OperationType__c</fullName>
+        <externalId>false</externalId>
+        <label>Operation Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>true</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>INSERT</fullName>
+                    <default>false</default>
+                    <label>INSERT</label>
+                </value>
+                <value>
+                    <fullName>UPSERT</fullName>
+                    <default>false</default>
+                    <label>UPSERT</label>
+                </value>
+                <value>
+                    <fullName>UPDATE</fullName>
+                    <default>false</default>
+                    <label>UPDATE</label>
+                </value>
+                <value>
+                    <fullName>DELETE</fullName>
+                    <default>false</default>
+                    <label>DELETE</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Outcome__c</fullName>
         <externalId>false</externalId>
         <label>Outcome</label>
@@ -153,6 +264,16 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>SFDCObject__c</fullName>
+        <externalId>false</externalId>
+        <label>SFDC Object</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Start__c</fullName>
@@ -212,6 +333,18 @@
     </fields>
     <gender>Masculine</gender>
     <label>Process Monitor</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>EmailSubject__c</columns>
+        <columns>Start__c</columns>
+        <columns>End__c</columns>
+        <columns>FrequencyValue__c</columns>
+        <columns>FrequencyType__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <label>Process Monitor Name</label>
         <type>Text</type>

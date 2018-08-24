@@ -1,0 +1,80 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+  <aura:attribute name="record" type="Object" description="The record object to be displayed"/>
+  <aura:attribute name="simpleRecord" type="Object" description="A simplified view record object to be displayed"/>
+  <aura:attribute name="recordError" type="String" description="An error message bound to force:recordData"/>
+  <aura:attribute name="iconOutcome" type="String" default="utility:error"/>
+  <aura:attribute name="iconSource" type="String" default="utility:close"/>
+  <aura:attribute name="iconTarget" type="String" default="utility:close"/>
+
+  <lightning:overlayLibrary aura:id="overlayLib"/>
+  
+  <force:recordData aura:id="record" layoutType="FULL" recordId="{!v.recordId}" targetError="{!v.recordError}" targetRecord="{!v.record}" 
+    targetFields ="{!v.simpleRecord}" mode="EDIT" recordUpdated="{!c.handleRecordUpdated}"/>
+    
+
+  <div class="tileClass slds-p-around_small">
+    <div class="slds-grid slds-wrap" style="height: 100%;" >
+      <div class="slds-col slds-size_1-of-6" style="height: 100%;">
+        <!-- <div class="slds-grid slds-wrap">
+          <div class="slds-col slds-size_1-of-1" style="text-align: center;"> -->
+            <lightning:icon iconName="{!v.iconOutcome}" size="medium"/>
+          <!-- </div> -->
+          <!-- <div class="slds-col slds-size_1-of-1" style="text-align: center;">
+            <div class="slds-p-top_x-small">
+              <lightning:icon class="slds-p-right_xx-small" iconName="{!v.iconSource}" size="small"/>
+              <lightning:icon class="" iconName="utility:forward" size="small" />
+              <lightning:icon class="slds-p-left_xx-small" iconName="{!v.iconTarget}" size="small" />
+            </div>
+          </div> -->
+        <!-- </div> -->
+      </div>
+      <div class="slds-col slds-size_5-of-6 slds-p-left_small" style="height: 100%; border-left:lightgray solid 1px" >
+        <div class="slds-grid slds-wrap">
+          <div class="slds-col slds-size_1-of-1" style="border-bottom:lightgray solid 1px">
+            <a onclick="{!c.handleShowModal}">{!v.simpleRecord.Name}</a>
+          </div>
+          <div class="slds-col slds-size_1-of-1">
+            <dl class="slds-dl_horizontal">
+              <dt class="slds-dl_horizontal__label">
+                <p class="slds-truncate" title="Frequency">Frequency:</p>
+              </dt>
+              <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                <p class="slds-truncate" title="{'Occours every '+!v.simpleRecord.FrequencyValue__c+' '+!v.simpleRecord.FrequencyType__c}">Occours every {!v.simpleRecord.FrequencyValue__c}&nbsp;{!v.simpleRecord.FrequencyType__c}</p>
+              </dd>
+              <dt class="slds-dl_horizontal__label">
+                <p class="slds-truncate" title="Last Start">Last Start:</p>
+              </dt>
+              <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                <p class="slds-truncate" title="{!v.simpleRecord.Start__c}">
+                  <lightning:formattedDateTime value="{!v.simpleRecord.Start__c}" year="numeric" month="short" day="2-digit" hour="numeric" minute="numeric" weekday="long"/>
+                </p>
+              </dd>
+              <dt class="slds-dl_horizontal__label">
+                <p class="slds-truncate" title="Last End">Last End:</p>
+              </dt>
+              <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                <p class="slds-truncate" title="{!v.simpleRecord.End__c}">
+                  <lightning:formattedDateTime value="{!v.simpleRecord.End__c}" year="numeric" month="short" day="2-digit" hour="numeric" minute="numeric" weekday="long"/>
+                </p>
+              </dd>
+            </dl>
+          </div>
+          <!-- <div class="slds-col slds-size_1-of-1">
+            <div class="slds-p-top_x-small">
+              <lightning:icon class="slds-p-right_xx-small" iconName="{!v.iconSource}" size="small"/>
+              <lightning:icon class="" iconName="utility:forward" size="small" />
+              <lightning:icon class="slds-p-left_xx-small" iconName="{!v.iconTarget}" size="small" />
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Display Lightning Data Service errors, if any -->
+  <aura:if isTrue="{!not(empty(v.recordError))}">
+    <div class="recordError">
+      {!v.recordError}
+    </div>
+  </aura:if>
+</aura:component>
